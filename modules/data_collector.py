@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 import psycopg2
 import requests
@@ -5,9 +7,12 @@ import requests
 
 def collect_data(symbol, interval):
     try:
-        url = (
-            f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval={interval}"
-        )
+        csv_file = f"{symbol}_{interval}.csv"
+        if os.path.exists(csv_file):
+            print(f"Data file '{csv_file}' already exists. Skipping data collection.")
+            return
+
+        url = f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval={interval}"
         response = requests.get(url)
         data = response.json()
 
@@ -16,7 +21,6 @@ def collect_data(symbol, interval):
         df.columns = ["Open time", "Open", "High", "Low", "Close", "Volume"]
         df["Open time"] = pd.to_datetime(df["Open time"], unit="ms")
 
-        csv_file = f"{symbol}_{interval}.csv"
         df.to_csv(csv_file, index=False)
 
         print("Data saved successfully.")

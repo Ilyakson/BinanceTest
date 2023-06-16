@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Data Collection</title>
 </head>
 <body>
     <h1>Data Collection</h1>
     <form action="/collect_data" method="POST">
         <label for="symbol">Symbol:</label>
-        <input type="text" id="symbol" name="symbol" required>
+        <input type="text" id="symbol" name="symbol" required><br>
+        
         <label for="interval">Interval:</label>
-        <input type="text" id="interval" name="interval" required>
+        <select id="interval" name="interval">
+            <option value="1d">1 Day</option>
+            <option value="4h">4 Hours</option>
+            <option value="1h">1 Hour</option>
+        </select><br>
+        
         <button type="submit">Collect Data</button>
     </form>
 </body>
