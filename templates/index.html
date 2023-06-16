@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Collection</title>
+</head>
+<body>
+    <h1>Data Collection</h1>
+    <form action="/collect_data" method="POST">
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+        <label for="interval">Interval:</label>
+        <input type="text" id="interval" name="interval" required>
+        <button type="submit">Collect Data</button>
+    </form>
+</body>
+</html>

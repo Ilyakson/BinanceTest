@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Candlestick Chart and Market Cap</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .home-button {
+            position: absolute;
+            top: 35px;
+            right: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="candlestick_chart">
+        {{ candlestick_chart.to_html(include_plotlyjs='cdn')|safe }}
+    </div>
+
+    <div id="market_cap_chart">
+        {{ market_cap_chart.to_html(include_plotlyjs='cdn')|safe }}
+    </div>
+
+    {% if show_home_button %}
+        <a href="/" class="home-button">Go to Main Page</a>
+    {% endif %}
+</body>
+</html>
