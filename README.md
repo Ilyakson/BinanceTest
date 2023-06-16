@@ -4,6 +4,8 @@ The Data Collection project is a web application for collecting financial quote 
 ## Installation
 ```
 git clone https://github.com/Ilyakson/BinanceTest.git
+```
+```
 python -m venv venv
 venv\Scripts\activate (on Windows)
 source venv/bin/activate (on macOS)
@@ -26,7 +28,10 @@ conn = psycopg2.connect(
 Replace the values with the corresponding settings of your PostgreSQL database.
 ## Running the Application
 
-1. Start the web application by running the following command: python app.py.
+1. Start the web application by running the following command: 
+```
+python app.py
+```
 2. Open a web browser and go to http://localhost:5000.
 
 ## Usage
